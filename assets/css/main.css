@@ -75,187 +75,272 @@ body {
     }
   }
   
+
+  /* Ensures the entire projects section is centered */
+.projects {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Full viewport height */
+  padding: 0 20px; /* Prevents overflow on smaller screens */
+  box-sizing: border-box;
+  flex-direction: column; /* Ensures header and container stack vertically */
+}
+
+/* Ensures the header and projects container take full width */
+.projects-header, .projects-container {
+  width: 100%; /* Prevents overflowing */
+}
+
+
+/* Ensures the title stays above the project section */
+.projects-header h1 {
+  font-size: 2rem; /* Scales the title for readability */
+  text-align: center; /* Centers the title */
+  margin-top: 20px; /* Adds space above the title */
+  margin-bottom: 20px; /* Adds space below the title */
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative; /* Keeps it in flow */
+  z-index: 2; /* Ensures it's not hidden by anything */
+}
+
+/* Project container styling */
+.projects-container {
+  display: flex;
+  justify-content: space-evenly; /* Evenly spaces the boxes */
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 10px; /* Adds a slight gap between boxes */
+  width: 100%; /* Full-width container */
+  padding: 20px 0; /* Adds space above and below the section */
+  box-sizing: border-box; /* Ensures padding doesn't overflow */
+}
+
+/* Individual project box styling */
+.project-box {
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 20%; /* Makes the boxes fit evenly */
+  height: 450px; /* Keeps box height consistent */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image styling within the project boxes */
+.project-box img {
+  width: 100%;
+  height: auto; /* Maintains aspect ratio */
+  max-height: 200px; /* Restricts image height */
+  object-fit: cover;
+}
+
+/* Project information styling */
+.project-info {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-description {
+  font-size: 14px;
+  color: #b5b5b5;
+  margin: 10px 0;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #444;
+  padding: 8px 15px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.github-link:hover {
+  background-color: #222;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Ensures the project boxes remain side-by-side on small screens */
   .projects-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Aligns the boxes to the bottom */
-    gap: 0px; /* Adds space between boxes */
-    position: fixed; /* Fixes the section on the screen */
-    bottom: 1in; /* Places the section 1 inch from the bottom */
-    width: 70%;
-    padding: 0 0px; /* Adds padding on the left and right */
+      display: flex;
+      flex-wrap: nowrap; /* Prevents stacking */
+      justify-content: space-evenly; /* Keeps even spacing */
+      align-items: flex-start;
+      width: 100%; /* Ensures full width */
+      overflow-x: auto; /* Enables horizontal scrolling if necessary */
   }
-  
+
   .project-box {
-    background-color: #333;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 300px; /* Ensures 4 boxes fit side by side */
-    height: 450px; /* Increases the length of the boxes */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
+      flex: 0 0 auto; /* Prevents resizing and ensures all boxes remain in one line */
+      width: 45%; /* Adjusts width to fit better on smaller screens */
+      height: 400px; /* Slightly reduced height for better scaling */
   }
-  
-  .project-box:hover {
-    transform: scale(1.05);
+
+  .projects-header h1 {
+      font-size: 1.8rem; /* Scales title size down slightly */
+      text-align: center;
+      margin-bottom: 20px;
   }
-  
-  .project-box img {
-    width: 100%;
-    height: 200px; /* Ensures the image follows a 16:9 ratio */
-    object-fit: cover;
-  }
-  
-  .project-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    background-color: #444; /* Adds a background to the title section */
-  }
-  
-  .project-info {
-    padding: 10px;
-    text-align: center;
-    flex-grow: 1; /* Makes the description area expand naturally */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .project-description {
-    font-size: 14px;
-    color: #b5b5b5;
-    margin: 10px 0;
-  }
-  
-  .github-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #444;
-    padding: 8px 15px;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .github-link:hover {
-    background-color: #222;
-  }
+}
+
   
 
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding: 40px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 10px;
+  margin: 200px;
+  width: 50%;
+  margin-left: auto;
+  position: relative;
+}
+
+.send-email, .connect-with-me {
+  flex: 1;
+  max-width: 45%;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f8f8f8;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 14px;
+  color: #a5a5a5;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  background-color: #292929;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  color: #fff;
+  resize: none;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+textarea {
+  height: 100px;
+}
+
+.send-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.send-btn:hover {
+  background-color: #45a049;
+}
+
+.connect-with-me .social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #292929;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-link i {
+  font-size: 20px;
+}
+
+.social-link:hover {
+  background-color: #4caf50;
+  transform: scale(1.05);
+}
+
+.connect-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/kathmandu.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
   .contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 40px;
-    padding: 40px;
-    background-color: #1e1e1e;
-    color: #fff;
-    border-radius: 10px;
-    margin: 200px;
-    width: 50%;
-    margin-left: auto; /* Pushes the container to the right */
-    position: relative; /* Ensures proper positioning in layout */
+    flex-direction: column;
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
   }
-  
-  
+
   .send-email, .connect-with-me {
-    flex: 1;
-    max-width: 45%;
-  }
-  
-  h2 {
-    font-size: 24px;
+    max-width: 100%;
     margin-bottom: 20px;
-    color: #f8f8f8;
-    text-align: center;
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    font-size: 14px;
-    color: #a5a5a5;
-    margin-bottom: 5px;
-  }
-  
-  input, textarea {
-    background-color: #292929;
-    border: 1px solid #444;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 14px;
-    color: #fff;
-    resize: none;
-  }
-  
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: #4caf50;
-  }
-  
-  textarea {
-    height: 100px;
-  }
-  
-  .send-btn {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .send-btn:hover {
-    background-color: #45a049;
-  }
-  
-  .connect-with-me .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-  }
-  
-  .social-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #292929;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .social-link i {
+
+  h2 {
     font-size: 20px;
+    margin-bottom: 15px;
   }
-  
-  .social-link:hover {
-    background-color: #4caf50;
-    transform: scale(1.05);
+
+  .send-btn {
+    font-size: 14px;
+    padding: 8px;
   }
-  
-  .connect-page {position:fixed;top:0;left:0;width:100%;height:100%;background-image:url("../img/kathmandu.png");background-position:center;background-size:cover;background-repeat:no-repeat}
+
+  .social-link {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
